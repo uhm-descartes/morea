@@ -65,6 +65,15 @@ jobs:
             exit 11
           fi
 
+          if [ -z "$COURSE_URL" ]; then
+            echo "Pages deployment not configured"
+            exit 1
+          fi
+          if [ -z "$COURSE_NAME" ]; then
+            echo "No MOREA Course Name defined in _config.yaml"
+            exit 1
+          fi
+
           cd $DESCARTES_COURSES_DIR
           
           echo "Configure git"
