@@ -30,6 +30,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Get Deployment URL
+        id: deployment
+        uses: actions/configure-pages@v4
+
       - name: Checkout current repository
         uses: actions/checkout@v4
         with:
@@ -45,6 +49,7 @@ jobs:
       - name: Update CSV and Create Pull Request
         env:
           GH_TOKEN: ${{ secrets.DESCARTES_TOKEN }}
+          COURSE_URL: ${{ steps.deployment.outputs.page_url }}
           COURSE_REPOSITORY: ${{ github.repository }}
           DESCARTES_COURSES_DIR: "descartes-modules"
           DESCARTES_COURSES_CSV: "course-sites/descartes-courses.csv"
@@ -63,8 +68,6 @@ jobs:
             echo "ERROR: _config.yml not found!"
             exit 11
           fi
-
-          COURSE_URL=$(gh api "repos/$COURSE_REPOSITORY/pages" --jq '.html_url')
 
           if [ -z "$COURSE_URL" ]; then
             echo "Pages deployment not configured"
