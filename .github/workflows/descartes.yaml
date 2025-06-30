@@ -42,9 +42,6 @@ jobs:
           path: descartes-modules
           token: ${{ secrets.DESCARTES_TOKEN }}
 
-      - name: Setup GitHub CLI
-        uses: actions4gh/setup-gh@v1
-
       - name: Update CSV and Create Pull Request
         env:
           GH_TOKEN: ${{ secrets.DESCARTES_TOKEN }}
