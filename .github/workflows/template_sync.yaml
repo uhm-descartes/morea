@@ -33,6 +33,7 @@ env:
 jobs:
   repo-sync:
     runs-on: ubuntu-latest
+    if: github.repository != env.SOURCE_REPOSITORY
 
     steps:
       # Doc: https://github.com/marketplace/actions/checkout
@@ -43,7 +44,6 @@ jobs:
       # Doc: https://github.com/marketplace/actions/actions-template-sync
       - name: actions-template-sync
         uses: AndreasAugustin/actions-template-sync@v1.1.8
-        if: github.repository != env.SOURCE_REPOSITORY
         with:
           github_token: ${{ secrets.DESCARTES_TOKEN }}
           source_repo_path: ${{ env.SOURCE_REPOSITORY }}
