@@ -46,7 +46,7 @@ jobs:
         uses: AndreasAugustin/actions-template-sync@v1.1.8
         if: github.repository != env.SOURCE_REPOSITORY
         with:
-          github_token: ${{ github.token }}
+          github_token: ${{ secrets.DESCARTES_TOKEN }}
           source_repo_path: ${{ env.SOURCE_REPOSITORY }}
           upstream_branch: ${{ env.SOURCE_BRANCH }}
           pr_title: "[actions-template-sync] Upstream template update"
