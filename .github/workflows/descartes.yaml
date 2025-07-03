@@ -27,7 +27,6 @@ concurrency:
 
 # Common Environment Variables for all Steps
 env:
-  SOURCE_BRANCH: main
   SOURCE_REPOSITORY: uhm-descartes/morea
 
 jobs:
