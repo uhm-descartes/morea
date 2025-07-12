@@ -1,4 +1,4 @@
-# Do not update these files/directories
+# Do not update these files/directories from the morea template
 _config.yml
 _config.yaml
 morea
