@@ -3,3 +3,4 @@ _config.yml
 _config.yaml
 morea
 module-info.js
+.gitignore
